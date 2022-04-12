@@ -1,0 +1,26 @@
+{
+  "name": "dragon-slayer",
+  "version": "1.0.0",
+  "description": "A text based game that runs on command line",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faiyazbits/dragon-slayer.git"
+  },
+  "author": "faiyazbits",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faiyazbits/dragon-slayer/issues"
+  },
+  "homepage": "https://github.com/faiyazbits/dragon-slayer#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "colors": "^1.4.0",
+    "nodemon": "^2.0.15",
+    "prompt-sync": "^4.2.0"
+  }
+}
