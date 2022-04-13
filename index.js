@@ -16,7 +16,7 @@ const officeRooms = {
     'Exit': {'East': undefined,'West':'Great Hall', 'North': undefined, 'South': undefined, 'items': ['Crossbow', 'Shield']},
 }
  log(officeRooms['Great Hall'])
- log(officeRooms['Exit'].items)
+ log(chalk.blue(officeRooms['Exit'].items))
 
 
 
