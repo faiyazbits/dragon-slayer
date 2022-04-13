@@ -19,5 +19,15 @@ const rooms = {
     'Exit': {'North':'GreatHall', 'items': []},
     }
 
-log(rooms['GreatHall'])
-log(chalk.blue(rooms['Exit'].North))
+
+log (chalk.red("you are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"))
+log (chalk.yellow("you can use the following commands:"))
+log (chalk.yellow("WALK - move north, south, east, west (ex: walk south)"))
+log (chalk.yellow("move an entity (ex: move sword)"))
+log (chalk.yellow("collect an entity (ex: collect key)"))
+log (chalk.white("you can use inventory to view your items (ex: inventory) ['flashlight']"))
+log (chalk.white("you have the following items: ['flashlight']"))
+log (chalk.white("you are located at: GreatHall -=- The greathall  at the villages center.there is a weapon cache at the back"))
+log (chalk.white("Objects:"))
+log (chalk.white("armory"))
+log (chalk.white("-=-"))
