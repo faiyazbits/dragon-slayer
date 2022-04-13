@@ -9,19 +9,14 @@ const log = console.log;
 const name = prompt("What is your name? ");
 log(chalk.blue(name));
 
-const fav = prompt("ur favorite food?");
- log(chalk.yellow(fav));
- 
- const rooms = {
-    'Great hall':{ 'South':'BedRoom', 'East': 'Exit','items':['Crossbow', 'Armory'] },
+const rooms = {
+    'GreatHall':{'North':'BedRoom','South':'Exit', 'East':'Cellar', 'items':['Crossbow','Shield'] },
     
-    'BedRoom' :{'North':'Great hall', 'East':'Cellar','items':['Chestplate', 'Key'] },
+    'BedRoom' :{'South':'GreatHall','items':['Armory', 'Key'] },
 
-    'Cellar' : {'North':'Exit','West':'BedRoom','items':'Shield' },
+    'Cellar' : {'West':'GreatHall','items':['Chestplate'] },
 
-    'Exit': {'South':'Cellar','West':'Great hall' },
-    
-
+    'Exit': {'North':'GreatHall','items':[]},
 }
-log(rooms['Cellar'].North)
+log(rooms['Cellar'].West)
 log(chalk.yellow(rooms['BedRoom'].items))
