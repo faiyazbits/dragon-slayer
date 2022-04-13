@@ -11,13 +11,6 @@ log(chalk.red(name));
 
 
 
-// rooms = {
-//     'GreatHall' : { 'North' : 'Bedroom', 'South': 'exit', 'East' : 'Cellar','items' : [] },
-//     'Bedroom' : { 'south' : 'GreatHall','items' : ['Armory','crosbow'] },
-//     'Cellar' : { 'West' : 'GreatHall', 'items' : ['chestplease'] },
-//     'exit' : { 'North' : 'GreatHall', 'items' : ['sheild','key'] }
-//     }
-
 
 const rooms = {
     'GreatHall': {'East': 'Cellar','North': 'BedRoom', 'South': 'Exit', 'items': ['Crossbow', 'Shield'] },
@@ -25,6 +18,6 @@ const rooms = {
     'Cellar': {'West': 'GreatHall', 'items': ['ChestPlate']},
     'Exit': {'North':'GreatHall', 'items': []},
     }
-    
+
 log(rooms['GreatHall'])
 log(chalk.blue(rooms['Exit'].North))
