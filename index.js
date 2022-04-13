@@ -17,24 +17,23 @@ const rooms = {
 }
 
  const storyLine = "You are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"
-//  log(chalk.red(storyLine))
- setTimeout(() => {log(chalk.red(storyLine)); }, 2000);
+log(chalk.red(storyLine))
 
 const storyCommands = `You can use the following commands:
 WALK- move north, south, east, west(ex:walk south
 MOVE- move an entity (ex: move sword)
 COLLECT- collect an entity (ex: collect key)`
 
-setTimeout(() => {log(chalk.rgb(238,238,174)(storyCommands)); }, 4000);
+log(chalk.rgb(238,238,174)(storyCommands))
 
 const inventories = `You can use inventory to view your items(ex: inventory)['shield']
 You have the following items: ['shield']`
-setTimeout(() => {log(chalk.rgb(245,245,245)(inventories)); }, 6000);
+log(chalk.rgb(245,245,245)(inventories))
 
 const greatHallDescription = `You are located at: GreatHall -=- The great hall at the villages center. There is a weapon cache at the back
 Objects:
 armory`
-setTimeout(() => {log(chalk.rgb(145,141,141)(greatHallDescription)); }, 8000);
+log(chalk.rgb(145,141,141)(greatHallDescription))
 
 
 
