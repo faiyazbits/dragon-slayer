@@ -9,7 +9,7 @@ log(chalk.red(name));
 
 const rooms = {
   'greatHall': {
-    'directions': { 'east': 'cellar', 'north': 'bedRoom', 'south': 'exit' },
+    'directions': { 'east': ['cellar'], 'north': ['bedRoom'], 'south': ['exit']},
     'description': 'The great hall at the villages center. There is a weapon cache at the back', 'items': ['crossbow', 'shield']
   },
   'bedRoom': { 'directions': { 'south': ['greatHall'] }, 'description': "The chiefs room, although he is no where to be found", 'items': ['armory', 'key'] },
@@ -36,7 +36,7 @@ Objects:
 ${rooms['greatHall'].items}`//Crossbow, Shield
 log(chalk.rgb(145, 141, 141)(greatHallDescription))
 
-const nextMove = prompt("What's your next move? ");//walk west
+let nextMove = prompt("What's your next move? ");//walk west
 log(chalk.rgb(145, 141, 141)("-=-", (nextMove)));
 
 function directionMove() {
@@ -55,8 +55,8 @@ function directionMove() {
 }
 directionMove()
 
-const move = prompt("What's your next move? ");
-log(chalk.rgb(145, 141, 141)("-=-", (move)));
+nextMove = prompt("What's your next move? ");
+log(chalk.rgb(145, 141, 141)("-=-", (nextMove)));
 //walk north
 
 const bedRoomDescription = `You are located at: BedRoom -=- ${rooms['bedRoom'].description} 
