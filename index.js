@@ -17,17 +17,32 @@ const rooms = {
     'BedRoom': {'South': 'GreatHall', 'items': ['Armory', 'Key']},
     'Cellar': {'West': 'GreatHall', 'items': ['ChestPlate']},
     'Exit': {'North':'GreatHall', 'items': []},
+    'main_rooms': {
+        "Great Hall":"The great hall at the villages center. There is a weapon cache at the back",
+        "Bedroom":"The chiefs room, although he is no where to be found",
+        "Cellar":"It smells foul and damp in here. The cries of prisoners can be heard echoing on the cracked stone walls.",
+        "Exit":"Goodbye! You can type leave to end the game."
+        }
     }
 
 
-log (chalk.red("you are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"))
-log (chalk.yellow("you can use the following commands:"))
-log (chalk.yellow("WALK - move north, south, east, west (ex: walk south)"))
-log (chalk.yellow("move an entity (ex: move sword)"))
-log (chalk.yellow("collect an entity (ex: collect key)"))
-log (chalk.white("you can use inventory to view your items (ex: inventory) ['flashlight']"))
-log (chalk.white("you have the following items: ['flashlight']"))
-log (chalk.white("you are located at: GreatHall -=- The greathall  at the villages center.there is a weapon cache at the back"))
-log (chalk.white("Objects:"))
-log (chalk.white("armory"))
-log (chalk.white("-=-"))
+
+const storyLine = "You are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"
+log(chalk.red(storyLine))
+
+const storyCommands = `You can use the following commands:
+WALK- move north, south, east, west(ex:walk south)
+MOVE- move an entity (ex: move sword)
+COLLECT- collect an entity (ex: collect key)`
+
+log(chalk.yellow(storyCommands))
+
+const inventories = `You can use inventory to view your items(ex: inventory)['shield']
+You have the following items: ['shield']`
+log(chalk.white(inventories))
+
+const greatHallDescription = `You are located at: GreatHall -=- ${rooms.main_rooms['Great Hall']} 
+Objects:
+${rooms['GreatHall'].items}`
+log(chalk.grey(greatHallDescription))
+
