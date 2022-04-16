@@ -8,32 +8,33 @@ const name = prompt("What is your name? ");
 log(chalk.red(name));
 
 const rooms = {
-  GreatHall: {
-    East: "Cellar",
-    North: "BedRoom",
-    South: "Exit",
-    items: ["Crossbow", "Shield"],
+  greatHall: {
+    directions: { east: ["cellar"], north: ["bedRoom"], south: ["exit"] },
+    description:
+      "The great hall at the villages center. There is a weapon cache at the back",
+    items: ["crossbow", "shield"],
   },
-  BedRoom: { South: "GreatHall", items: ["Armory", "Key"] },
-  Cellar: { West: "GreatHall", items: ["ChestPlate"] },
-  Exit: { North: "GreatHall", items: [] },
+  bedRoom: {
+    directions: { south: ["greatHall"] },
+    description: "The chiefs room, although he is no where to be found",
+    items: ["armory", "key"],
+  },
+  cellar: {
+    directions: { west: ["greatHall"] },
+    description:
+      "It smells foul and damp in here. The cries of prisoners can be heard echoing on the cracked stone walls.",
+    items: ["chestplate"],
+  },
+  exit: {
+    directions: { north: ["greatHall"] },
+    description: "Goodbye! You can type leave to end the game.",
+    items: [],
+  },
 };
 
-// Dictionary of main rooms and their corresponding descriptions
-main_rooms = {
-  "GreatHall":
-    "The great hall at the villages center. There is a weapon cache at the back",
-  Bedroom: "The chiefs room, although he is no where to be found",
-  Cellar:
-    "It smells foul and damp in here. The cries of prisoners can be heard echoing on the cracked stone walls.",
-  Exit: "Goodbye! You can type leave to end the game.",
-};
-
-// setTimeout(function () {
-//   const gameIntroduction =
-//     "You are in a small village under attack from a Dragon!Quick, enter the building and get your crossbow.";
-//   log(chalk.red(gameIntroduction));
-// }, 500);
+const gameIntro =
+  "You are in a small village under attack from a Dragon!Quick, enter the building and get your crossbow.";
+log(chalk.red(gameIntro));
 
 const gameCommands = `You can use the following commands:
 WALK- move north, south, east, west(ex:walk south)
@@ -46,16 +47,32 @@ const inventories = `You can use inventory to view your items(ex: inventory)['sw
 You have the following items: ['sword']`;
 log(chalk.white(inventories));
 
-const greatHallIntro = `You are located at: GreatHall -=- ${main_rooms.GreatHall}
+const greatHallIntro = `You are located at: GreatHall -=- ${rooms.greatHall.description}
 Objects:
-${rooms.GreatHall.items}`//Crossbow, Shield
+${rooms.greatHall.items}`; //Crossbow, Shield
 log(chalk.grey(greatHallIntro));
 
-const playerCurrentLocation = rooms.GreatHall.East;
-log(chalk.red(playerCurrentLocation));//Cellar
+// const playerCurrentLocation = rooms.greatHall.directions["north"];
+// log(chalk.red(playerCurrentLocation)); //bedroom
 
-if(playerCurrentLocation == rooms.GreatHall.East){
-  log(chalk.red(`You are located at:Cellar -=- ${main_rooms.Cellar} items: ${rooms.Cellar.items}`));
+const nextMove = prompt("What's your next move? ");
+log(chalk.red("-=-", nextMove));
+function directionMove() {
+  if (nextMove == "walk east") {
+    console.log(
+      `You are located at:Cellar -=- ${rooms.cellar.description} items: ${rooms.cellar.items}`
+    );
+  } else if (nextMove == "walk north") {
+    console.log(
+      `You are located at:Bedroom -=- ${rooms.bedRoom.description} items: ${rooms.bedRoom.items} `
+    );
+  } else if (nextMove == "walk south") {
+    console.log("exit");
+  } else {
+    console.log(
+      "Try again, your currently available exits are",
+      rooms.greatHall.directions
+    );
+  }
 }
-
-
+directionMove();
