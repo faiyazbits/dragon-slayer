@@ -68,9 +68,9 @@ function directionMove() {
 directionMove()
 
 nextMove = prompt("What's your next move? ");
-log(chalk.rgb(145, 141, 141)("-=-", (nextMove)));
+log(chalk.rgb(145, 141, 141)("-=- walk", (nextMove)));
 
-console.log(bedRoomDescription)
+log(chalk.green(bedRoomDescription))
 
 
 
