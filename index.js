@@ -47,9 +47,7 @@ const cellarDescription = `You are located at: Cellar -=- ${rooms['cellar'].desc
 Objects:
 ${rooms['cellar'].items}`
 
-const exitDescription = `You are located at: Exit -=- ${rooms['exit'].description} 
-Objects:
-${rooms['exit'].items}`
+const exitDescription = `You are located at: Exit -=- ${rooms['exit'].description}`
 
 function directionMove() {
   if (nextMove == "walk east") {
