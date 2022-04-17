@@ -39,15 +39,27 @@ log(chalk.rgb(145, 141, 141)(greatHallDescription))
 let nextMove = prompt("What's your next move? ");//walk west
 log(chalk.rgb(145, 141, 141)("-=-", (nextMove)));
 
+const bedRoomDescription = `You are located at: BedRoom -=- ${rooms['bedRoom'].description} 
+Objects:
+${rooms['bedRoom'].items}`
+
+const cellarDescription = `You are located at: Cellar -=- ${rooms['cellar'].description} 
+Objects:
+${rooms['cellar'].items}`
+
+const exitDescription = `You are located at: Exit -=- ${rooms['exit'].description} 
+Objects:
+${rooms['exit'].items}`
+
 function directionMove() {
   if (nextMove == "walk east") {
-    console.log("Enter The Cellar")
+    console.log(cellarDescription)
   }
   else if (nextMove == "walk north") {
-    console.log("enter the bedroom")
+    console.log(bedRoomDescription)
   }
   else if (nextMove == "walk south") {
-    console.log("exit")
+    console.log(exitDescription)
   }
   else {
     console.log("Try again, your currently available exits are", (rooms['greatHall'].directions))
@@ -57,12 +69,8 @@ directionMove()
 
 nextMove = prompt("What's your next move? ");
 log(chalk.rgb(145, 141, 141)("-=-", (nextMove)));
-//walk north
 
-const bedRoomDescription = `You are located at: BedRoom -=- ${rooms['bedRoom'].description} 
-Objects:
-${rooms['bedRoom'].items}`
-log(chalk.rgb(145, 141, 141)(bedRoomDescription))
+console.log(bedRoomDescription)
 
 
 
