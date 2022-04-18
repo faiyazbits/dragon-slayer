@@ -1,13 +1,10 @@
-import { showIntroduction} from 'introduction.js';
+const showIntroduction = require('./introduction');
 
 const prompt = require("prompt-sync")();
 const chalk = require("chalk");
-const { yellow } = require("colors");
 
 const log = console.log;
 
-const name = prompt("What is your name? ");
-log(chalk.red(name));
 
 const rooms = {
   greatHall: {
@@ -34,18 +31,8 @@ const rooms = {
   },
 };
 
-showIntroduction(gameIntro)
+showIntroduction()
 
-const gameCommands = `You can use the following commands:
-WALK- move north, south, east, west(ex:walk south)
-MOVE- move an entity (ex: move sword)
-COLLECT- collect an entity (ex: collect key)`;
-
-log(chalk.yellow(gameCommands));
-
-const inventories = `You can use inventory to view your items(ex: inventory)['sword']
-You have the following items: ['sword']`;
-log(chalk.white(inventories));
 
 const greatHallIntro = `You are located at: GreatHall -=- ${rooms.greatHall.description}
 Objects:
