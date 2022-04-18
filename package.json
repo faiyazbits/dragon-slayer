@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
+    "type": "git", 
     "url": "git+https://github.com/faiyazbits/dragon-slayer.git"
   },
   "author": "faiyazbits",
@@ -22,5 +22,6 @@
     "colors": "^1.4.0",
     "nodemon": "^2.0.15",
     "prompt-sync": "^4.2.0"
+
   }
 }
