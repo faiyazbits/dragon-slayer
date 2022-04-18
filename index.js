@@ -19,63 +19,6 @@ const rooms = {
 
 storyIntro()
 
-// const greatHallDescription = `You are located at: ${rooms.greatHall.name} -=- ${rooms['greatHall'].description} 
-// Objects:
-// ${rooms['greatHall'].items}`//Crossbow, Shield
-// log(chalk.rgb(145, 141, 141)(greatHallDescription))
-
-// let nextMove = prompt("What's your next move? ");//walk west
-// log(chalk.rgb(145, 141, 141)("-=- walk", (nextMove)));
-
-// const bedRoomDescription = `You are located at: ${rooms.bedRoom.name} -=- ${rooms['bedRoom'].description} 
-// Objects:
-// ${rooms['bedRoom'].items}`
-
-// const cellarDescription = `You are located at: ${rooms.cellar.name} -=- ${rooms['cellar'].description} 
-// Objects:
-// ${rooms['cellar'].items}`
-
-// const exitDescription = `You are located at: ${rooms.exit.name} -=- ${rooms['exit'].description}`
-
-// function directionMove() {
-//   if (nextMove == "walk east") {
-//     console.log(cellarDescription)
-//   }
-//   else if (nextMove == "walk north") {
-//     console.log(bedRoomDescription)
-//   }
-//   else if (nextMove == "walk south") {
-//     console.log(exitDescription)
-//   }
-//   else {
-//     console.log("Try again, your currently available exits are", (rooms['greatHall'].directions))
-//   }
-// }
-// directionMove()
-
-// nextMove = prompt("What's your next move? ");
-// log(chalk.rgb(145, 141, 141)("-=- walk", (nextMove)));
-
-// log(chalk.green(bedRoomDescription))
-
-// console.log("-=- collect armory")
-// console.log("armory has been added to your inventory")
-
-// console.log("-=- collect key")
-// console.log("key has been added to your inventory")
-
-// nextMove = prompt("What's your next move? ");
-// log(chalk.rgb(145, 141, 141)("-=- walk", (nextMove)));
-
-// log(chalk.green(cellarDescription))
-
-// console.log("-=- collect chestplate")
-// console.log("chestplate has been added to your inventory")
-
-// nextMove = prompt("What's your next move? ");
-// log(chalk.rgb(145, 141, 141)("-=- walk", (nextMove)));
-
-// log(chalk.green(exitDescription))
 
 
 
