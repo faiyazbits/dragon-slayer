@@ -1,3 +1,5 @@
+import { showIntroduction} from 'introduction.js';
+
 const prompt = require("prompt-sync")();
 const chalk = require("chalk");
 const { yellow } = require("colors");
@@ -32,9 +34,7 @@ const rooms = {
   },
 };
 
-const gameIntro =
-  "You are in a small village under attack from a Dragon!Quick, enter the building and get your crossbow.";
-log(chalk.red(gameIntro));
+showIntroduction(gameIntro)
 
 const gameCommands = `You can use the following commands:
 WALK- move north, south, east, west(ex:walk south)
@@ -52,11 +52,12 @@ Objects:
 ${rooms.greatHall.items}`; //Crossbow, Shield
 log(chalk.grey(greatHallIntro));
 
-// const playerCurrentLocation = rooms.greatHall.directions["north"];
-// log(chalk.red(playerCurrentLocation)); //bedroom
+ const currentRoom = rooms.greatHall.directions;
+log(chalk.red(currentRoom)); 
 
 const nextMove = prompt("What's your next move? ");
 log(chalk.red("-=-", nextMove));
+
 function directionMove() {
   if (nextMove == "walk east") {
     console.log(
@@ -67,7 +68,7 @@ function directionMove() {
       `You are located at:Bedroom -=- ${rooms.bedRoom.description} items: ${rooms.bedRoom.items} `
     );
   } else if (nextMove == "walk south") {
-    console.log("exit");
+    console.log(`You are located at:exit -=- ${rooms.exit.description}`);
   } else {
     console.log(
       "Try again, your currently available exits are",
@@ -76,3 +77,4 @@ function directionMove() {
   }
 }
 directionMove();
+
