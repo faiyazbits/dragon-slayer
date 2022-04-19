@@ -40,8 +40,3 @@ function notAvailableDirection() {
   }
 }
 notAvailableDirection()
-
-
-
-
-
