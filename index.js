@@ -1,42 +1,37 @@
 const prompt = require('prompt-sync')();
 const chalk = require('chalk');
-
 const log = console.log;
-
-const {storycommand} = require('./storyIntro.js')
-storycommand()
-
-const {inventories} = require('./storyIntro.js')
-inventories()
-
-const {currentLocation} = require('./description.js')
-currentLocation()
-
-log(chalk.rgb(105, 41, 224)("Start The Game"))
-
-const {roomInformation} = require('./description.js')
-roomInformation()
+//const {generateDescription} = require('./description.js')
+const { rooms } = require('./description.js')
 
 const name = prompt("What is your name? ");
 log(chalk.blue(name));
+
+const { storyIntroduction } = require('./storyIntro.js')
+storyIntroduction()
+
+function currentLocation() {
+    const currentLocation = `you are located at ${rooms['GreatHall'].name}`
+    log(chalk.yellow(currentLocation))
+}
+currentLocation()
+
+function roomInformation(){
+    const greatHallInformation =` ${rooms['GreatHall'].description}
+    Objects:
+    ${rooms['GreatHall'].items}`
+    log(chalk.grey(greatHallInformation))
+    }
+    roomInformation()
+
+log(chalk.rgb(105, 41, 224)("Start The Game"))
+
+log(prompt("your first move?"))
 
 const nextMove = prompt("whats your next move?");
 log(chalk.blue(nextMove));
 
 
-// const rooms = {
-//     'GreatHall': {'name': 'Greathall',
-//         'direction': { 'east': 'cellar', 'north': 'bedroom', 'south': 'exit' },
-//         'description': 'The great hall at the villages center. There is a weapon cache at the back', 'items': ['Crossbow', 'Shield']
-//     }
-   
-//     'BedRoom': {'name': 'BedRoom', 'direction': { 'south': 'GreatHall' }, 'description': "The chiefs room, although he is no where to be found", 'items': ['Armory', 'Key'] },
-//     'Cellar': {'name': 'Cellar', 'direction': { 'west': 'GreatHall' }, 'description': "It smells foul and damp in here. The cries of prisoners can be heard echoing on the cracked stone walls.", 'items': ['ChestPlate'] },
-//     'Exit': {'name': 'Exit', 'direction': { 'north': 'GreatHall' }, 'description': "Goodbye! You can type leave to end the game.", 'items': [] },
-// }
-// log(rooms['GreatHall'].name)
-// log(rooms['Cellar'].direction.west)
-// log(chalk.rgb(105, 41, 224)(rooms['BedRoom'].items))
 
 
 // function directionMove() {
@@ -58,9 +53,3 @@ log(chalk.blue(nextMove));
 
 
 
-// function  delayedLog(time){
-//     let delay = setInterval(() => {console.log(time)}, 8000);
-//     clearInterval(() =>{console.log(delay)},3000)
-
-// }
-// delayedLog()

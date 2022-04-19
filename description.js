@@ -1,6 +1,3 @@
-
-const chalk = require('chalk');
-const log = console.log;
 const rooms = {
     'GreatHall': {'name': 'Greathall',
         'direction': { 'east': 'cellar', 'north': 'bedroom', 'south': 'exit' },
@@ -10,28 +7,11 @@ const rooms = {
     'Cellar': {'name': 'Cellar', 'direction': { 'west': 'GreatHall' }, 'description': "It smells foul and damp in here. The cries of prisoners can be heard echoing on the cracked stone walls.", 'items': ['ChestPlate'] },
     'Exit': {'name': 'Exit', 'direction': { 'north': 'GreatHall' }, 'description': "Goodbye! You can type leave to end the game.", 'items': [] },
 }
-exports.currentLocation = function currentLocation(){
-const currentLocation= `you are located at ${rooms['GreatHall'].name}`
-log(chalk.yellow(currentLocation))
-}
-exports.roomInformation = function roomInformation(){
-const greatHallInformation = `You are located at: GreatHall -=- ${rooms['GreatHall'].description}
-Objects:
-${rooms['GreatHall'].items}`
-log(chalk.grey(greatHallInformation))
+ 
+// exports.currentLocation = function currentLocation(){
+// const currentLocation= `you are located at ${rooms['GreatHall'].name}`
+// log(chalk.yellow(currentLocation))
+// }
 
-const bedRoomInformation = `You are located at: BedRoom -=- ${rooms['BedRoom'].description}
-Objects:
-${rooms['BedRoom'].items}`
-log(chalk.grey(bedRoomInformation))
-
-const cellarInformation = `You are located at : Cellar -=- ${rooms['Cellar'].description}
-Objects:
-${rooms['Cellar'].items}`
-log(chalk.grey(cellarInformation))
-
-const exitInformation = `You are located at : Exit -=- ${rooms['Exit'].description}
-Objects:
-${rooms['Exit'].items}`
-log(chalk.grey(exitInformation))
-}
+ 
+ module.exports = {rooms}
