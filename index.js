@@ -25,18 +25,19 @@ storyIntro()
 
 let currentRoom = rooms.greatHall;
 
-let currentLocation = generateDescription(currentRoom.name, currentRoom.description, currentRoom.items);
+let currentLocation = generateDescription(currentRoom);
 
 let nextMove = prompt("What's your next move? ");//walk west
-log(chalk.rgb(145, 141, 141)("-=- walk", nextMove));
+log(chalk.rgb(145, 141, 141)("-=-walk", nextMove));
 
-function notAvailableDirection() {
-  let availableDirections = Object.keys(currentRoom.directions);
-  // console.log(availableDirections)
+let availableDirections = Object.keys(currentRoom.directions);
+ 
+function isDirectionAvailable() {
   const isDirectionAvailable = availableDirections.includes(nextMove)
   if (!isDirectionAvailable) {
     console.log("Try again, your currently available exits are", currentRoom.directions)
-    nextMove = prompt("What's your next move? ");//walk west
+    nextMove = prompt("What's your next move? ");
   }
 }
-notAvailableDirection()
+isDirectionAvailable()
+
