@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const log = console.log;
 
-const storyLine = "You are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"
+const storyIntro = "You are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"
 
 const storyCommands = `You can use the following commands:
 WALK- walk north, south, east, west(ex:walk south)
@@ -12,7 +12,7 @@ const inventories = `You can use inventory to view your items(ex: inventory)['sh
 You have the following items: ['shield']`
 
 function showIntroduction(){
-  log(chalk.red(storyLine))
+  log(chalk.red(storyIntro))
   log(chalk.rgb(238, 238, 174)(storyCommands))
   log(chalk.rgb(245, 245, 245)(inventories))
 }
