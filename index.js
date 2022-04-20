@@ -21,11 +21,11 @@ generateDescription(currentLocation)
 
 
 const nextMove = prompt("What's your next move? ");//walk west
-// log(chalk.white("-=- walk", (nextMove)));
 const splitedArray = nextMove.split(" ")
 const lastName = splitedArray[splitedArray.length-1]
 log(chalk.rgb(145, 141, 141)("-=-", (nextMove)));
 console.log(lastName)
+
 
 
 
@@ -42,4 +42,13 @@ function isActiveDirections(){
 
 }
 
-isActiveDirections()
+isActiveDirections(lastName)
+
+
+
+function canMove(){
+
+}
+canMove()
+
+
