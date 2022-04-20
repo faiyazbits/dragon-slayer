@@ -17,10 +17,10 @@ const log = console.log;
 // const exitDescription = `You are located at: ${rooms.exit.name} -=- ${rooms['exit'].description}`
 
 
-function generateDescription(name, description, items){
-    log(chalk.grey(`You are located at: ${name}: -=- ${description}
+function generateDescription(rooms){
+    log(chalk.grey(`You are located at: ${rooms.name}: -=- ${rooms.description}
     Objects:
-    ${items}`));
+    ${rooms.items}`));
 }
 
 module.exports = generateDescription;
