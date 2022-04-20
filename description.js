@@ -23,10 +23,10 @@ const rooms = require('./information.js');
 
 
 
-function generateDescription(name, description, items) {
-  console.log(`you are located at ${name}: -=- ${description}
+function generateDescription(rooms) {
+  console.log(`you are located at ${rooms.name}: -=- ${rooms.description}
     Objects:
-${items}`);
+${rooms.items}`);
 }
 
 module.exports = generateDescription;
