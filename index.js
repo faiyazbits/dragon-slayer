@@ -6,9 +6,6 @@ const prompt = require('prompt-sync')();
 const chalk = require('chalk');
 const log = console.log;
 
-const name = prompt("What is your name? ");
-log(chalk.red(name));
-
 const rooms = {
   'greatHall': {
     name: 'GreatHall',
@@ -25,19 +22,32 @@ storyIntro()
 
 let currentRoom = rooms.greatHall;
 
-let currentLocation = generateDescription(currentRoom);
+generateDescription(currentRoom);
 
-let nextMove = prompt("What's your next move? ");//walk west
-log(chalk.rgb(145, 141, 141)("-=-walk", nextMove));
+let nextMove = prompt("What's your next move? ");
+log(chalk.rgb(145, 141, 141)("-=-", nextMove));
+// let arr = nextMove.split(' ')
+// console.log(arr[1])
 
-let availableDirections = Object.keys(currentRoom.directions);
- 
-function isDirectionAvailable() {
+function isAvailableDirection() {
+  let availableDirections = Object.keys(currentRoom.directions);
+  console.log(availableDirections)
   const isDirectionAvailable = availableDirections.includes(nextMove)
+  // const isDirectionAvailable = availableDirections.includes(arr[1])
   if (!isDirectionAvailable) {
     console.log("Try again, your currently available exits are", currentRoom.directions)
     nextMove = prompt("What's your next move? ");
   }
+  else {
+    const nextRoom = currentRoom.directions[nextMove]
+    currentRoom = rooms[nextRoom]
+    generateDescription(currentRoom)
+
+    nextMove = prompt("What's your next move? ");
+  }
 }
-isDirectionAvailable()
+
+isAvailableDirection()
+
+
 
