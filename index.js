@@ -2,7 +2,7 @@ const prompt = require('prompt-sync')();
 const chalk = require('chalk');
 const log = console.log;
 
-const { rooms } = require('./room.js')
+const  {rooms}  = require('./room.js')
 const delayedLog = require('./delayedlog')
 const  storyIntroduction  = require('./storyIntro.js')
 
@@ -11,44 +11,15 @@ const  storyIntroduction  = require('./storyIntro.js')
 
  storyIntroduction()
 
+function currentLocation(rooms) {
+    console.log(`You are located at: ${rooms.name} -=- ${rooms.description} 
+Objects:
+${rooms.items}`)
+}
+let currentRoom = rooms.GreatHall;
+currentLocation(currentRoom)
 
-
-
-// function currentLocation(room) {
-//     log(chalk.green(`You are located at: ${room.name} `))
-// }
-// let currentRoom = rooms.GreatHall;
-// currentLocation(currentRoom)
-
-
-
-
-// function roomDescription(room) {
-//     console.log(` ${room.description} 
-//         Objects:
-//         ${room.items}`)
-// }
-// roomDescription(currentRoom)
-
-
-//available(currentRoom)
-
-
-// function currentLocation() {
-//     const currentLocation = `you are located at ${rooms['GreatHall'].name}`
-//     log(chalk.yellow(currentLocation))
-// }
-
-
-// function roomInformation() {
-//     const greatHallInformation = `${rooms['GreatHall'].description}
-//     Objects:
-//     ${rooms['GreatHall'].items} collect your items`
-//     log(chalk.grey(greatHallInformation))
-// }
-// roomInformation()
-
-// log(chalk.rgb(105, 41, 224)("Start The Game"))
+log(chalk.rgb(105, 41, 224)("Start The Game"))
 
 
 // let firstMove = prompt("What's your first move? ");

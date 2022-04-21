@@ -16,13 +16,13 @@ You have the following items: ['Chestplate']`
 
 
 function storyIntroduction(){
-    delayedLog(gameIntro, () => {
-        delayedLog(gameCommands,()=> {
-            delayedLog(inventoryCommand, ()=> {
-
-            })
-        })
-    })
+   return delayedLog(gameIntro)
+   .then(() => {
+       return delayedLog(gameCommands)
+       .then(() => {
+           return delayedLog(inventoryCommand)
+       })
+   })
 }
 
 // storyIntroduction()
