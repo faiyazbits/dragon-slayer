@@ -1,4 +1,5 @@
-function delayedLog(string,cb){
+function delayedLog(string){
+    return new Promise((resolve)=>{
     const chars = string.split("").join("").concat("\n");
     let i = 0;
     const delayedInterval = setInterval(()=>{
@@ -6,9 +7,10 @@ function delayedLog(string,cb){
         i++;
         if(i == chars.length){
             clearInterval(delayedInterval)
-            cb()
+            resolve()
         }
     },50)
+})
 }
 
 module.exports = delayedLog;

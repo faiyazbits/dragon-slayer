@@ -13,12 +13,22 @@ const gameInventoryDescription = `You can use inventory to view your items(ex: i
 You have the following items: ['shield']`
 
 function storyIntro(){
-    delayedLog(gameIntro,()=> {
-        delayedLog(gameCommands,()=> {
-            delayedLog(gameInventoryDescription,()=> {
-            })
-        })
-    })   
+
+    // delayedLog(gameIntro,()=> {
+    //     delayedLog(gameCommands,()=> {
+    //         delayedLog(gameInventoryDescription,()=> {
+    //         })
+    //     })
+    // }) 
+    
+    return delayedLog(gameIntro)
+    .then(()=>{
+         return delayedLog(gameCommands) 
+    })
+    .then(()=>{
+       return delayedLog(gameInventoryDescription) 
+    })
+    
 }
 
 module.exports = storyIntro;
