@@ -1,30 +1,37 @@
 const prompt = require('prompt-sync')();
 const chalk = require('chalk');
 const log = console.log;
-// const {currentLocation}= require('./description.js')
-// console.log(currentLocation)
-const { rooms } = require('./description.js')
+
+const { rooms } = require('./room.js')
+const delayedLog = require('./delayedlog')
+const  storyIntroduction  = require('./storyIntro.js')
 
 
-const name = prompt("What is your name? ");
-log(chalk.blue(name));
+//delayedLog("hello world")
 
-const { storyIntroduction } = require('./storyIntro.js')
-storyIntroduction()
+ storyIntroduction()
 
-let currentRoom = rooms.GreatHall;
-function currentLocation(room) {
-    log(chalk.green(`You are located at: ${room.name} `))
-}
-currentLocation(currentRoom)
 
-function roomDescription(room) {
-    console.log(` ${room.description} 
-        Objects:
-        ${room.items}`)
-}
-roomDescription(currentRoom)
 
+
+// function currentLocation(room) {
+//     log(chalk.green(`You are located at: ${room.name} `))
+// }
+// let currentRoom = rooms.GreatHall;
+// currentLocation(currentRoom)
+
+
+
+
+// function roomDescription(room) {
+//     console.log(` ${room.description} 
+//         Objects:
+//         ${room.items}`)
+// }
+// roomDescription(currentRoom)
+
+
+//available(currentRoom)
 
 
 // function currentLocation() {
@@ -41,41 +48,45 @@ roomDescription(currentRoom)
 // }
 // roomInformation()
 
-log(chalk.rgb(105, 41, 224)("Start The Game"))
+// log(chalk.rgb(105, 41, 224)("Start The Game"))
 
 
-let firstMove = prompt("What's your first move? ");
-log(chalk.red("-=-walk", firstMove));
-
-let possibleDirection = Object.keys(currentRoom.direction);
-
-function isDirectionAvailable() {
-    const isDirectionAvailable = possibleDirection.includes(firstMove)
-    if (!isDirectionAvailable) {
-        console.log("Try again, your currently available directions are", currentRoom.direction)
-        nextMove = prompt("What's your next move? ");
-    }
-}
-isDirectionAvailable()
+// let firstMove = prompt("What's your first move? ");
+// log(chalk.red("-=-walk", firstMove));
+//let nextMove = prompt("What's your next move? ");
 
 
+// let possibleDirection = Object.keys(currentRoom.direction);
 
+// function isDirectionAvailable() {
+    // if(firstMove.includes(directions)){
+    //     return false;}
+    //    else{
+//     const isDirectionAvailable = possibleDirection.includes(firstMove)
+    
+//     if (!isDirectionAvailable) {
+//         console.log("Try again, your currently available directions are", currentRoom.direction)
+//    let nextMove = prompt("What's your next move? ");
+//    console.log(nextMove)
+//     } else   {
+//         const nextRoom = currentRoom.direction[firstMove]
+//         currentRoom = rooms[nextRoom]
+       // currentLocation(currentRoom)
+        // isDirectionAvailable()
 
-// function directionMove() {
-//     if (nextMove == "walk east") {
-//         log(chalk.green("Enter the cellar you are located at cellar : -=- ", (rooms['Cellar'].description), "Collect the items at cellar:", (rooms['Cellar'].items)))
-//     }
-//     else if (nextMove == "walk north") {
-//         log("enter the bedroom")
-//     }
-//     else if (nextMove == "walk south") {
-//         log("exit")
-//     }
-//     else {
-//         log("Try again, your currently available exits are", (rooms['GreatHall'].direction.keys))
-//     }
+        // console.log("go to room")
+        // const nextRoom = currentRoom.direction[firstMove]
+        // currentRoom = rooms[nextRoom]
+        // roomDescription(currentRoom)
+    
+        // nextMove = prompt("What's your next move? ");
+//       }
+
 // }
-// directionMove()
+// isDirectionAvailable()
+
+
+
 
 
 

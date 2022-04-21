@@ -7,15 +7,10 @@ const rooms = {
     'Cellar': {'name': 'Cellar', 'direction': { 'west': 'GreatHall' }, 'description': "It smells foul and damp in here. The cries of prisoners can be heard echoing on the cracked stone walls.", 'items': ['ChestPlate'] },
     'Exit': {'name': 'Exit', 'direction': { 'north': 'GreatHall' }, 'description': "Goodbye! You can type leave to end the game.", 'items': [] },
 }
-//exports.currentLocation =
-//function currentLocation() {
-    //     const currentLocation = `you are located at ${rooms['GreatHall'].name}`
-    //     log(chalk.yellow(currentLocation))
-    // }
-    //  currentLocation()
+
     
 
  
  
-//  module.exports = currentLocation
+
  module.exports = {rooms}
