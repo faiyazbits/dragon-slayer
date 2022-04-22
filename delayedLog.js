@@ -10,7 +10,7 @@ function delayedLog(string){
             resolve()
         }
     },50)
-})
+    })
 }
 
 module.exports = delayedLog;

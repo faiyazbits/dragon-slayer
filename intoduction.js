@@ -12,23 +12,12 @@ COLLECT- collect an entity (ex: collect key)`
 const gameInventoryDescription = `You can use inventory to view your items(ex: inventory)['shield']
 You have the following items: ['shield']`
 
-function storyIntro(){
+async function storyIntro() {
 
-    // delayedLog(gameIntro,()=> {
-    //     delayedLog(gameCommands,()=> {
-    //         delayedLog(gameInventoryDescription,()=> {
-    //         })
-    //     })
-    // }) 
-    
-    return delayedLog(gameIntro)
-    .then(()=>{
-         return delayedLog(gameCommands) 
-    })
-    .then(()=>{
-       return delayedLog(gameInventoryDescription) 
-    })
-    
+    await delayedLog(`${chalk.red(gameIntro)}`)
+    await delayedLog(`${chalk.rgb(235,235,137)(gameCommands)}`)
+    await delayedLog(`${chalk.rgb(145,141,141)(gameInventoryDescription)}`)
+
 }
 
 module.exports = storyIntro;
