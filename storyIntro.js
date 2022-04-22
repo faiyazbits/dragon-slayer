@@ -25,10 +25,7 @@ function storyIntroduction(){
    })
 }
 
-// storyIntroduction()
-// .then((a) => {
-// return delayedLog(storyIntro)
-// })
+
 
 module.exports = storyIntroduction
 
