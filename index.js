@@ -1,47 +1,40 @@
 const prompt = require('prompt-sync')();
-const chalk = require('chalk');
-const log = console.log;
-
-const  {rooms}  = require('./room.js')
-const currentLocation = require('./logger')
+const  rooms = require('./room.js')
+const {currentRoomDescription, logAvailableExits} = require('./logger')
 const delayedLog = require('./delayedlog')
 const  storyIntroduction  = require('./storyIntro.js')
 
 
 
- async function main (){
-  await storyIntroduction()
-log(chalk.rgb(105, 41, 224)("Start The Game"))
-    let currentRoom = rooms.GreatHall;
-currentLocation(currentRoom)
+async function main() {
+await storyIntroduction()
 
-const userInput = prompt("hello")
+let currentRoom = rooms.greatHall;
+currentRoomDescription(currentRoom)
 
+const userInput = prompt("");
+const direction = captureDirection(userInput);
+    //  console.log(direction)
+currentRoom=navigation(currentRoom,direction);
+   currentRoomDescription(currentRoom)
 
-const direction = captureDirection(userInput)
-console.log(direction)
-
+}
 
 function captureDirection(userInput){
     return userInput.split(' ').pop()
-     }
-
-
-
-function navigation(nextRoom){
-let navigateRoom = currentRoom.direction[direction]
-    
-console.log(navigateRoom)
- let room =currentLocation(navigateRoom)
- console.log(room)
 }
-navigation()
-}
-
     
-
-
-
+function navigation(currentRoom,direction){
+    if(currentRoom.directions[direction]){
+        const roomName = currentRoom.directions[direction]
+        return rooms[roomName]
+    }
+    else {
+        logAvailableExits(currentRoom)
+        return currentRoom
+         
+    }
+}
 
 main()
 

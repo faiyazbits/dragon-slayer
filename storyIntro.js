@@ -1,5 +1,4 @@
 const chalk = require('chalk');
-const log = console.log;
 const delayedLog = require('./delayedlog')
 
 const gameIntro = "You are in a small Village under attack from a Dragon! Quick, enter the building and get your Crossbow"
@@ -15,14 +14,12 @@ You have the following items: ['Chestplate']`
 
 
 
-function storyIntroduction(){
-   return delayedLog(gameIntro)
-   .then(() => {
-       return delayedLog(gameCommands)
-       .then(() => {
-           return delayedLog(inventoryCommand)
-       })
-   })
+async function storyIntroduction(){
+  
+   await delayedLog(`${chalk.red(gameIntro)}`)
+   await delayedLog(`${chalk.green(gameCommands)}`)
+   await delayedLog(`${chalk.yellow(inventoryCommand)}`)
+   await delayedLog(`${chalk.rgb(110, 41, 224)("Start The Game")}`)
 }
 
 

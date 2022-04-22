@@ -1,8 +1,15 @@
 const rooms =require('./room')
-
-function currentLocation(rooms) {
-    console.log(`You are located at: ${rooms.name} -=- ${rooms.description} 
+const chalk = require('chalk');
+// const log = console.log;
+function currentRoomDescription(room) {
+    console.log(chalk.rgb(0, 247, 255)(`You are currently located at: ${room.name} -=- ${room.description} 
 Objects:
-${rooms.items}`)
+${room.items}`))
 }
-module.exports = currentLocation
+
+function logAvailableExits(room){
+    console.log("Try again, your currently available directions are", room.directions)
+}
+module.exports = {currentRoomDescription,
+logAvailableExits
+}
