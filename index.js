@@ -3,28 +3,58 @@ const chalk = require('chalk');
 const log = console.log;
 
 const  {rooms}  = require('./room.js')
+const currentLocation = require('./logger')
 const delayedLog = require('./delayedlog')
 const  storyIntroduction  = require('./storyIntro.js')
 
 
-//delayedLog("hello world")
 
- storyIntroduction()
-
-function currentLocation(rooms) {
-    console.log(`You are located at: ${rooms.name} -=- ${rooms.description} 
-Objects:
-${rooms.items}`)
-}
-let currentRoom = rooms.GreatHall;
+ async function main (){
+  await storyIntroduction()
+log(chalk.rgb(105, 41, 224)("Start The Game"))
+    let currentRoom = rooms.GreatHall;
 currentLocation(currentRoom)
 
-log(chalk.rgb(105, 41, 224)("Start The Game"))
+const userInput = prompt("hello")
 
 
-// let firstMove = prompt("What's your first move? ");
-// log(chalk.red("-=-walk", firstMove));
-//let nextMove = prompt("What's your next move? ");
+const direction = captureDirection(userInput)
+console.log(direction)
+
+
+function captureDirection(userInput){
+    return userInput.split(' ').pop()
+     }
+
+
+
+function navigation(nextRoom){
+let navigateRoom = currentRoom.direction[direction]
+    
+console.log(navigateRoom)
+ let room =currentLocation(navigateRoom)
+ console.log(room)
+}
+navigation()
+}
+
+    
+
+
+
+
+main()
+
+  
+
+
+
+
+
+
+
+
+
 
 
 // let possibleDirection = Object.keys(currentRoom.direction);
