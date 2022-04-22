@@ -19,8 +19,7 @@ const log = console.log;
 
 function generateDescription(rooms){
     log(chalk.grey(`You are located at: ${rooms.name}: -=- ${rooms.description}
-    Objects:
-    ${rooms.items}`));
+    Objects:${rooms.items}`));
 }
 
-module.exports = generateDescription;
+ module.exports = generateDescription;
