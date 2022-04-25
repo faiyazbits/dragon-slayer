@@ -7,4 +7,8 @@ Objects:
 ${rooms.items}`)
 }
 
-module.exports = generateDescription;
+function isAvailableDirection(rooms){
+console.log("Try again, your currently available exits are", rooms.directions)
+}
+
+module.exports = {generateDescription, isAvailableDirection};
