@@ -8,15 +8,22 @@ const chalk = require("chalk");
 const log = console.log;
 
 async function main() {
-  await showIntroduction();
+  // await showIntroduction();
+  let gameOver = false;
   let currentRoom = rooms.greatHall;
   logRoomDescription(currentRoom);
 
-  const userInput = prompt("");
-  const direction = captureDirection(userInput);
+  while (!gameOver) {
+    const userInput = prompt("");
+    log(chalk.grey("-=-", userInput))
+    const direction = captureDirection(userInput);
 
-  currentRoom = navigate(currentRoom, direction);
-  logRoomDescription(currentRoom);
+    currentRoom = navigate(currentRoom, direction);
+    if(currentRoom.name == "Exit"){
+      gameOver = true;
+    }
+    logRoomDescription(currentRoom);
+  }
 }
 
 function captureDirection(userInput) {
