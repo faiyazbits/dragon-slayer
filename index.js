@@ -34,6 +34,8 @@ async function main() {
       console.log("you are in exit, Game End")
     }
 
+    generateDescription(currentRoom)
+
   }
 }
 
