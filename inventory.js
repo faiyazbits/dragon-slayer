@@ -1,26 +1,18 @@
 const prompt = require("prompt-sync")();
-const chalk = require("chalk");
-const log = console.log;
 
 function captureItem(userInput) {
-    return userInput.split(" ").pop();
+  let capturedItems = userInput.split(" ").pop();
+  return capturedItems;
 }
 
-const userInput = prompt("");
-log(chalk.grey("-=-", userInput));
-const currentItem = captureItem(userInput);
-
-function collectInventory(items) {
-    const inventory = [];
-    let currentRoom = rooms.greatHall;
-  if(currentRoom.includes(items)){
-    inventory.push(items);
-    console.log(inventory);
-  }
+function inventoryInfo() {
+  const gameItems = prompt("collect -=-");
+  const collectedItems = captureItem(gameItems);
+  console.log(collectedItems, "has been added to your inventory");
 }
 
+function inventoryItems() {
+  console.log("You have the following items:${collectedItems}");
+}
 
-module.exports = {
-  captureItem,
-  collectInventory,
-};
+module.exports = { inventoryInfo, inventoryItems };
