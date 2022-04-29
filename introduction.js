@@ -13,8 +13,7 @@ COLLECT- collect an entity (ex: collect key)`;
 const inventoryCommand = `You can use inventory to view your items(ex: inventory)['shield']
 You have the following items: ['shield']`;
 
-
-async function showIntroduction(){
+async function showIntroduction() {
   await delayedLog(chalk.red(gameIntro));
   await delayedLog(chalk.yellow(gameCommands));
   await delayedLog(chalk.grey(inventoryCommand));

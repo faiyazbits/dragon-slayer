@@ -26,4 +26,4 @@ const rooms = {
     items: [],
   },
 };
-module.exports =  rooms ;
+module.exports = rooms;

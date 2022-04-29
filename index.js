@@ -1,8 +1,12 @@
 const showIntroduction = require("./introduction");
 const delayedLog = require("./delayed_log");
 const rooms = require("./rooms");
-const { logRoomDescription, logAvailableExits } = require("./logger");
-const { inventoryInfo, inventoryItems } = require("./inventory");
+const {
+  logRoomDescription,
+  logAvailableExits,
+  logItemCollected,
+  getLogStatementForInventory,
+} = require("./logger");
 const prompt = require("prompt-sync")();
 const chalk = require("chalk");
 const log = console.log;
@@ -11,46 +15,52 @@ async function main() {
   // await showIntroduction();
   let gameOver = false;
   let currentRoom = rooms.greatHall;
+  let playerInventory = [];
   logRoomDescription(currentRoom);
 
   while (!gameOver) {
-    inventoryInfo(currentRoom);
-    inventoryUpdate(currentRoom);
-  
-    const userInput = prompt("-=-");
-    log(chalk.grey(userInput));
-    const direction = captureDirection(userInput);
-
-    currentRoom = navigate(currentRoom, direction);
-    if (currentRoom.name == "Exit") {
-      gameOver = true;
+    const userInput = prompt("");
+    const command = captureCommand(userInput);
+    if (command === "walk") {
+      const direction = captureDirectionOrInventoryItem(userInput);
+      currentRoom = navigate(currentRoom, direction);
+      if (currentRoom.name == "Exit") {
+        gameOver = true;
+      }
+      logRoomDescription(currentRoom);
     }
-    logRoomDescription(currentRoom);
+
+    if (command === "collect") {
+      const itemInCommand = captureDirectionOrInventoryItem(userInput);
+      const item = currentRoom.items.find((item) => item === itemInCommand);
+      if (item) {
+        playerInventory.push(item);
+        logItemCollected(item);
+      }
+    }
+
+    if (command === "inventory") {
+      const inventoryMessage = getLogStatementForInventory(playerInventory);
+      await delayedLog(inventoryMessage);
+    }
+  }
+
+  function captureDirectionOrInventoryItem(userInput) {
+    return userInput.split(" ").pop();
+  }
+
+  function captureCommand(userInput) {
+    return userInput.split(" ").shift();
+  }
+
+  function navigate(currentRoom, direction) {
+    if (currentRoom.directions[direction]) {
+      const roomName = currentRoom.directions[direction];
+      return rooms[roomName];
+    } else {
+      logAvailableExits(currentRoom);
+      return currentRoom;
+    }
   }
 }
-
-function captureDirection(userInput) {
-  return userInput.split(" ").pop();
-}
-
-function navigate(currentRoom, direction) {
-  if (currentRoom.directions[direction]) {
-    roomName = currentRoom.directions[direction];
-    return rooms[roomName];
-  } else {
-    logAvailableExits(currentRoom);
-    return currentRoom;
-  }
-}
-function inventoryUpdate() {
-  const inventory = [];
-  let currentRoom = rooms.greatHall;
-  let currentItem = currentRoom.items;
-  if (currentRoom.items > 1) {
-    console.log(currentItem, "has been added to your inventory");
-  } else {
-  }
-  inventory.push(currentItem);
-}
-
 main();
