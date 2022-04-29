@@ -1,6 +1,5 @@
 const chalk = require('chalk');
 const delayedLog = require('./delayedLog');
-const log = console.log;
 
 const gameIntro = "You are in a small village under attack from a dragon! Quick, enter the building and get your crossbow"
 
