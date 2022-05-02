@@ -18,4 +18,8 @@ function getLogStatementForInventory(inventory) {
     return `You have the following items: ${inventory}`
 }
 
-module.exports = { generateDescription, logAvailableDirection, logItemCollected, getLogStatementForInventory };
+function repeatedInventoryItems(){
+    console.log("you already have items in your inventory")
+}
+
+module.exports = { generateDescription, logAvailableDirection, logItemCollected, getLogStatementForInventory, repeatedInventoryItems };
