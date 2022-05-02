@@ -1,86 +1,50 @@
 const prompt = require('prompt-sync')();
-const  rooms = require('./room.js')
-const {currentRoomDescription, logAvailableExits} = require('./logger')
+const chalk = require('chalk');
+const log = console.log;
+
+const rooms = require('./rooms.js')
+const { currentRoomDescription, logAvailableExits } = require('./loginformation')
 const delayedLog = require('./delayedlog')
-const  storyIntroduction  = require('./storyIntro.js')
-
-
+const storyIntroduction = require('./gameintroduction.js')
 
 async function main() {
-await storyIntroduction()
+    await storyIntroduction()
+    log(chalk.rgb(105, 41, 224)("Start The Game"))
 
-let currentRoom = rooms.greatHall;
-currentRoomDescription(currentRoom)
+    let gameOver = false;
+    let currentRoom = rooms.greatHall;
+    currentRoomDescription(currentRoom)
 
-const userInput = prompt("");
-const direction = captureDirection(userInput);
-    //  console.log(direction)
-currentRoom=navigation(currentRoom,direction);
-   currentRoomDescription(currentRoom)
+    while (!gameOver) {
+        const userInput = prompt("");
+        const direction = captureDirection(userInput);
+
+        currentRoom = navigation(currentRoom, direction);
+        if (currentRoom.name == "Exit") {
+            gameOver = true;
+        }
+        currentRoomDescription(currentRoom)
+
+    }
 
 }
 
-function captureDirection(userInput){
+function captureDirection(userInput) {
     return userInput.split(' ').pop()
 }
-    
-function navigation(currentRoom,direction){
-    if(currentRoom.directions[direction]){
+
+function navigation(currentRoom, direction) {
+    if (currentRoom.directions[direction]) {
         const roomName = currentRoom.directions[direction]
         return rooms[roomName]
     }
     else {
         logAvailableExits(currentRoom)
         return currentRoom
-         
     }
 }
 
 main()
-
-  
-
-
-
-
-
-
-
-
-
-
-
-// let possibleDirection = Object.keys(currentRoom.direction);
-
-// function isDirectionAvailable() {
-    // if(firstMove.includes(directions)){
-    //     return false;}
-    //    else{
-//     const isDirectionAvailable = possibleDirection.includes(firstMove)
-    
-//     if (!isDirectionAvailable) {
-//         console.log("Try again, your currently available directions are", currentRoom.direction)
-//    let nextMove = prompt("What's your next move? ");
-//    console.log(nextMove)
-//     } else   {
-//         const nextRoom = currentRoom.direction[firstMove]
-//         currentRoom = rooms[nextRoom]
-       // currentLocation(currentRoom)
-        // isDirectionAvailable()
-
-        // console.log("go to room")
-        // const nextRoom = currentRoom.direction[firstMove]
-        // currentRoom = rooms[nextRoom]
-        // roomDescription(currentRoom)
-    
-        // nextMove = prompt("What's your next move? ");
-//       }
-
-// }
-// isDirectionAvailable()
-
-
-
 
 
 

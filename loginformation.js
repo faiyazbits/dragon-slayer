@@ -1,4 +1,4 @@
-const rooms =require('./room')
+const rooms =require('./rooms')
 const chalk = require('chalk');
 // const log = console.log;
 function currentRoomDescription(room) {
