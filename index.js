@@ -28,8 +28,8 @@ async function main(){
 
       if(command === 'collect'){
         const itemInCommand = captureDirectionOrInventoryItem(userInput);
-        const item = currentRoom.items.find((i) => itemInCommand);
-        if(item) {
+        const item = currentRoom.items.find((i) => i === itemInCommand);
+        if(item && !playerInventory.includes(item)) {
             playerInventory.push(item);
             logItemCollected(item);
         }
